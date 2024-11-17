@@ -70,8 +70,18 @@ class Ingestao:
             self._execute_query(query)
             print(f"Tabela {table_name} criada com sucesso.")
 
-    def _insert_initial_data(self):
-        """Insere dados iniciais nas tabelas."""
+    def _insert_csv_to_table(self, file_path, table_name):
+        """Insere dados de um arquivo CSV em uma tabela."""
+        try:
+            df = pd.read_csv(file_path)
+            df.to_sql(table_name, con=self._connect(), if_exists='append', index=False)
+            print(f"Dados do arquivo {file_path} inseridos na tabela {table_name} com sucesso.")
+        except Exception as e:
+            print(f"Erro ao inserir dados do arquivo {file_path}: {e}")
+            raise
+
+    def _insert_data(self):
+        """Insere os dados nas tabelas."""
         # Inserindo dados na tabela dCalendario
         calendar_insert_path = os.path.join(os.getcwd(), 'sql/dCalendario_insert.sql')
         calendar_query = self._read_sql_file(calendar_insert_path)
@@ -87,20 +97,10 @@ class Ingestao:
             file_path = os.path.join(os.getcwd(), csv_file)
             self._insert_csv_to_table(file_path, table_name)
 
-    def _insert_csv_to_table(self, file_path, table_name):
-        """Insere dados de um arquivo CSV em uma tabela."""
-        try:
-            df = pd.read_csv(file_path)
-            df.to_sql(table_name, con=self._connect(), if_exists='append', index=False)
-            print(f"Dados do arquivo {file_path} inseridos na tabela {table_name} com sucesso.")
-        except Exception as e:
-            print(f"Erro ao inserir dados do arquivo {file_path}: {e}")
-            raise
-
     def run(self):
         """Executa o fluxo completo de ingestão de dados."""
         self._create_tables()
-        self._insert_initial_data()
+        self._insert_data()
 
 if __name__ == '__main__':
     ingestao = Ingestao()
