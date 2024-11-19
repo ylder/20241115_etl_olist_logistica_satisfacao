@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "mv - projeto pratico para avaliacao de conhecimento"
+version = "0.1.0"
+description = "A partir das bases de dados da Olist, disponibilizadas publicamente no Kaggle, realizar projeto de BI completo que atenda as solicitacoes da MV."
+authors = ["ylder <yldebran.santana@gmail.com>"]
+license = "MIT License"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+kagglehub = "^0.3.4"
+pandas = "^2.2.3"
+numpy = "^2.1.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
