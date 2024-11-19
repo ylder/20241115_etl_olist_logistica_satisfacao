@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS dCalendario (
+CREATE TABLE IF NOT EXISTS dw_dCalendario (
     data DATE PRIMARY KEY,
     ano INTEGER,
     mes INTEGER,

@@ -6,7 +6,7 @@ WITH RECURSIVE gerar_datas AS (
     FROM gerar_datas
     WHERE data < DATE('2018-08-31') -- Ajuste o período conforme necessário
 )
-INSERT INTO dCalendario (data, ano, mes, dia, nome_mes, trimestre, semestre, semana_ano, dia_semana, nome_dia_semana, dia_util, ano_mes)
+INSERT INTO dw_dCalendario (data, ano, mes, dia, nome_mes, trimestre, semestre, semana_ano, dia_semana, nome_dia_semana, dia_util, ano_mes)
 SELECT 
     data,
     CAST(STRFTIME('%Y', data) AS INTEGER) AS ano,
