@@ -1,12 +1,9 @@
-# MV Sistemas - Projeto Prático para Avaliação de Conhecimento
+# Impacto da operação logística na satisfação do cliente
 
 ## 1. Descrição do Projeto
 
 Programa que realiza a extração, transformação e carregamento de dados em um  
 data warehouse.
-
-Este projeto foi desenvolvido para o teste de avaliação de conhecimento da MV Sistemas,  
-relativo à vaga de Analista de Business Intelligence.
 
 Os dados utilizados são da grande varejista Olist, que possui uma base de dados  
 disponibilizada publicamente no Kaggle.
@@ -23,7 +20,9 @@ disponibilizada publicamente no Kaggle.
 ## 3. Objetivos do Autor
 
 Implementar etapas de extração, staging e data warehouse com Python e SQLite; após  
-isso, desenvolver visualizações de dados com Power BI integrado ao banco de dados SQLite.
+isso, visualizar dados com Power BI integrado ao banco de dados SQLite, finalizando
+com a criação de um relatório que analisa o impacto da operação logística na satisfação
+do cliente.
 
 ## 4. Funcionamento do Projeto
 
